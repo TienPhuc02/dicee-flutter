@@ -29,16 +29,28 @@ class DiceeAppp extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Container(
-                padding: const EdgeInsets.all(10),
-                child: const Image(
-                  image: AssetImage("images/dice1.png"),
+                height: 100,
+                child: FloatingActionButton(
+                  backgroundColor: Colors.red,
+                  onPressed: () {
+                    print("hello world left");
+                  },
+                  child: const Image(
+                    image: AssetImage("images/dice1.png"),
+                  ),
                 ),
               ),
             ),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Image.asset("images/dice2.png"),
+              child: Container(
+                height: 100,
+                child: FloatingActionButton(
+                  backgroundColor: Colors.red,
+                  onPressed: () {
+                    print("hello world right");
+                  },
+                  child: const Image(image: AssetImage("images/dice2.png")),
+                ),
               ),
             ),
           ],
