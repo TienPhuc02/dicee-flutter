@@ -11,15 +11,21 @@ void main() {
             child: Text("Dicee App"),
           ),
         ),
-        body: const DiceeAppp(),
+        body: const DicePage(),
       ),
     ),
   );
 }
 
-class DiceeAppp extends StatelessWidget {
-  const DiceeAppp({Key? key}) : super(key: key);
+class DicePage extends StatefulWidget {
+  const DicePage({super.key});
 
+  @override
+  State<DicePage> createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  var leftDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,10 +39,13 @@ class DiceeAppp extends StatelessWidget {
                 child: FloatingActionButton(
                   backgroundColor: Colors.red,
                   onPressed: () {
-                    print("hello world left");
+                    setState(() {
+                      leftDiceNumber = 5;
+                      print('diceNumber =$leftDiceNumber');
+                    });
                   },
-                  child: const Image(
-                    image: AssetImage("images/dice1.png"),
+                  child: Image(
+                    image: AssetImage('images/dice$leftDiceNumber.png'),
                   ),
                 ),
               ),
@@ -49,7 +58,7 @@ class DiceeAppp extends StatelessWidget {
                   onPressed: () {
                     print("hello world right");
                   },
-                  child: const Image(image: AssetImage("images/dice2.png")),
+                  child: Image(image: AssetImage("images/dice2.png")),
                 ),
               ),
             ),
@@ -59,3 +68,46 @@ class DiceeAppp extends StatelessWidget {
     );
   }
 }
+
+// class DiceePage extends StatelessWidget {
+//   const DiceePage({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Center(
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           children: <Widget>[
+//             Expanded(
+//               child: Container(
+//                 height: 100,
+//                 child: FloatingActionButton(
+//                   backgroundColor: Colors.red,
+//                   onPressed: () {
+//                     print("hello world left");
+//                   },
+//                   child: const Image(
+//                     image: AssetImage("images/dice1.png"),
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             Expanded(
+//               child: Container(
+//                 height: 100,
+//                 child: FloatingActionButton(
+//                   backgroundColor: Colors.red,
+//                   onPressed: () {
+//                     print("hello world right");
+//                   },
+//                   child: const Image(image: AssetImage("images/dice2.png")),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
